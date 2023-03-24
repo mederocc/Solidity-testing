@@ -42,7 +42,7 @@ async function main() {
 
   await contract.deploymentTransaction().wait(1);
 
-  // console.log(contract.target); // I meant to run contract.address, but I'm not getting the address. This seems to be it?
+  console.log(contract.target); // I meant to run contract.address, but I'm not getting the address. This seems to be it?
 
   // playing with functions in deployed contract
 
@@ -53,6 +53,7 @@ async function main() {
 
   // updates number, which saves it to the blockchain
   let transactionResponse = await contract.store(7);
+  await contract.increment();
 
   // waits for transaction to be confirmed
   let transactionReceipt = await transactionResponse.wait();
